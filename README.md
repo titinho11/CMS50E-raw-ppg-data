@@ -1,6 +1,6 @@
-# CONTEC PULSE OXIMETER CMS50E raw real time ppg Value
+# CONTEC PULSE OXIMETER CMS50E raw real time ppg Values
 Raw ppg data from cms50e device
-This repository allows you to record the raw live data from the cms50e and and save them in a file. You can edit it to plot these real time ppg value.
+This repository allows you to record the raw live data from the cms50e and and save them in a file. You can edit it to plot these real time ppg values.
 
 
 ![Alt text](/cms50e.jpg "Contec Pulse Oximeter CMS50E")
@@ -13,9 +13,9 @@ Follow these instructions to retrieve raw real time data from the cms50e with th
 1. Install python3 and the corresponding pip program
 2. Install pyserial librarie by entering in a shell : `pip3 install pyserial`
 3. Put your finger in the oximeter, turn it on, then plug into the PC. Make sure that it works well, i.e. that you can see the ppg curve vary on his screen before proceeding to the next step.
-4. Run `cms50e.py` script passing to it as argument the port where the device is plug (in my example, the port is 'COM6') and the raw binary data output file: `python3 cms50e.py COM6 data.txt`. In Ubuntu, the command is something like `python3 cms50e.py \dev\ttyUSB0 data.txt`
+4. Run `cms50e.py` script passing to it as argument the port where the device is plug (in my example, the port is 'COM6') and the raw binary data output file (data in this case): `python3 cms50e.py COM6 data`. In Ubuntu, the command is something like `python3 cms50e.py \dev\ttyUSB0 data.txt`
 5. Press `^C` to stop the recording when you have enought data.
-6. Run the script `decod.py` to convert theses raw data to ppg values into a file, from where you can read to operate on Matlab for example : `python3 decod.py data.txt ppg.txt`. `data.txt` is the preview raw data output file and `ppg.txt` is the file which contains line by line ppg values. Now you can process this in Matlab or python to get the ppg curve.
+6. Run the script `decod.py` to convert theses raw data to ppg values into a file, from where you can read to operate on Matlab for example : `python3 decod.py data.txt ppg.txt`. `data.txt` is the ppg raw data output file and `ppg.txt` is the file which contains line by line ppg values. Now you can process this in Matlab or python to get the ppg curve.
 
 Raw PPG from CMS50E (HR=63 on CMS50E).png
 ![Alt text](/ppg.png "Raw ppg curve from cms50e")
