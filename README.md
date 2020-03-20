@@ -4,7 +4,7 @@ This repository allows you to record the raw live data from the cms50e and and s
 
 
 ![Alt text](/cms50e.jpg "Contec Pulse Oximeter CMS50E")
-*NB : There are apparently different versions of the cms50e. Not having found a code allowing me to retrieve the data from the version I had (above picture), I created this one. Moreover, the difference between the versions is often the serial opening baud and the real time raw data exchange protocol. With a little luck, you will find anyway other repository related to these versions;) .*
+*NB : There are apparently different versions of the cms50e. Not having found a code allowing me to retrieve the data from the version I had (above picture), I created this one. Moreover, the difference between the versions is often the serial opening baud and the real time raw data exchange protocol. With a little luck, you will find anyway other repository related to these versions;-) .*
 
 ## Usage
 
@@ -28,7 +28,8 @@ Raw PPG from CMS50E (HR=63 on CMS50E).png
 - To understand more about this protocol, please refers to : [Alex Robinson](https://www.tranzoa.net/~alex/blog/?p=371) and [Asbjørn Brask](https://www.atbrask.dk/?author=1)'s articles. It seems however that the encoding and protocol described by these articles are not always valid for my version of the CMS50e device. I stopped the investigation when the data I obtained was indeed a typical ppg curve, whose deduced Heart Rate value was moreover equal to the one displayed by the device.
 
 ## Debugging tricks
-- About the 4fh step : if the device is not recognized, maybe [this driver](https://www.silabs.com/products/mcu/pages/usbtouartbridgevcpdrivers.aspx) is not installed in your PC. Check out on the internet if it is the case, and how to install that. But if you have the SPO2 Assistant software provided with the device installed in you PC, and if you can connect the device to that software, you should not have this issue. In Ubuntu, to make sure the device is well plug and recognized, enter `dmesg` in the terminal after plug in the device and look at the output. You should see something like the screen below :
+- About the 4th step : if the device is not recognized, maybe [this driver](https://www.silabs.com/products/mcu/pages/usbtouartbridgevcpdrivers.aspx) is not installed in your PC. Check out on the internet if it is the case, and how to install that. But if you have the SPO2 Assistant software provided with the device installed in you PC, and if you can connect the device to that software, you should not have this issue. In Ubuntu, to make sure the device is well plug and recognized, enter `dmesg` in the terminal after plug in the device and look at the output. You should see something like the screen below :
 ![Alt text](https://www.atbrask.dk/wp-content/uploads/2015/03/dmesg.png "dmesg Output")
-- About the 4fh step : under the conditions specified by step 2, the data recorded here correspond to the raw ppg values. On the other hand if you do not respect these conditions (finger out of the ppg...), this data will not correspond to the ppg value. Please refer to the above-mentioned documentation for more information.
-- This code only retrieves information of interest without handling input or usage errors, please refer again to the above mentioned documentation to modify it or to make it more complete if necessary ;-)
+
+- About the 4th step : under the conditions specified by step 2, the data recorded here correspond to the raw ppg values. On the other hand if you do not respect these conditions (finger out of the ppg...), this data will not correspond to the ppg value. Please refer to the above-mentioned documentations for more information.
+- This code only retrieves information of interest without handling input or usage errors, please refer again to the above mentioned documentations to modify it or to make it more complete if necessary ;-)
