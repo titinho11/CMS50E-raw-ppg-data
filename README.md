@@ -18,7 +18,7 @@ Follow these instructions to retrieve raw real time data from the cms50e with th
 6. Run the script `decod.py` to convert theses raw data to ppg values into a file, from where you can read to operate on Matlab for example : `python3 decod.py data.txt ppg.txt`. `data.txt` is the preview raw data output file and `ppg.txt` is the file which contains line by line ppg values. Now you can process this in Matlab or python to get the ppg curve.
 
 Raw PPG from CMS50E (HR=63 on CMS50E).png
-![ppg raw-ppg-from-cms50e](/images/aw PPG from CMS50E (HR=63 on CMS50E).png)
+![ppg raw-ppg-from-cms50e](/raw PPG from CMS50E (HR=63 on CMS50E).png)
 
 ## Few remarks
 - The Sampling frequency of the device is 60Hz
