@@ -15,7 +15,7 @@ Follow these instructions to retrieve raw real time data from the cms50e with th
 3. Put your finger in the oximeter, turn it on, then plug into the PC. Make sure that it works well, i.e. that you can see the ppg curve vary on his screen before proceeding to the next step.
 4. Run `cms50e.py` script passing to it as argument the port where the device is plug (in my example, the port is 'COM6') and the raw binary data output file (data in this case): `python3 cms50e.py COM6 data`. In Ubuntu, the command is something like `python3 cms50e.py \dev\ttyUSB0 data`
 5. Press `^C` to stop the recording when you have enought data.
-6. Run the script `decod.py` to convert theses raw data to ppg values into a file, from where you can read to operate on Matlab for example : `python3 decod.py data ppg.txt`. `data.txt` is the ppg raw data output file and `ppg.txt` is the file which contains line by line ppg values. Now you can process this in Matlab or python to get the ppg curve.
+6. Run the script `decod.py` to convert theses raw data to ppg values into a file, from where you can read to operate on Matlab for example : `python3 decod.py data ppg.txt`. `data` is the ppg raw data output file and `ppg.txt` is the file which contains line by line ppg values. Now you can process this in Matlab or python to get the ppg curve.
 
 Raw PPG from CMS50E (HR=63 on CMS50E).png
 ![Alt text](/ppg.png "Raw ppg curve from cms50e")
