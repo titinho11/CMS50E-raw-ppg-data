@@ -24,7 +24,7 @@ Raw PPG from CMS50E (HR=63 on CMS50E).png
 - The code works both for Windows and Ubuntu
 - The Sampling frequency of the device is 60Hz
 - 60 time per second, the device send 9 bytes to the PC. The last two bytes seems to be always `ffff`, which i used as a delimitor
-- the 4th byte contains, at his first 6 bits, the encoded raw ppg value
+- the 4th byte contains the encoded raw ppg value
 - To understand more about this protocol, please refers to : [Alex Robinson](https://www.tranzoa.net/~alex/blog/?p=371) and [Asbjørn Brask](https://www.atbrask.dk/?author=1)'s articles. It seems however that the encoding and protocol described by these articles are not always valid for my version of the CMS50e device. I stopped the investigation when the data I obtained was indeed a typical ppg curve, whose deduced Heart Rate value was moreover equal to the one displayed by the device.
 
 ## Debugging tricks
