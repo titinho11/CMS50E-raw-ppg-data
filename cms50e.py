@@ -1,5 +1,7 @@
 import sys
 import serial
+import calendar;
+import time;
 
 #INPUT :
 #    sys.argv[1] = the serial port of CMS50E device
@@ -18,6 +20,10 @@ serial = serial.Serial(sys.argv[1],
                                     
 serial.write(b'\x7d\x81\xa1\x80\x80\x80\x80\x80\x80') #it seem that this is a request live data like command 
 print("Recording...\n^C to stop.")
+
+ts = calendar.timegm(time.gmtime()) #10 caracteres a echapper dans le decodage de data
+with open(sys.argv[2], "a") as myfile:
+        myfile.write(str(ts))
 while True:
     data = serial.read() #read each byte
     with open(sys.argv[2], "a") as myfile:

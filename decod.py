@@ -11,6 +11,12 @@ import sys
 f = open(sys.argv[1], "r")
 data = f.read()
 f.close()
+
+timestamp = data[:10] #retrieving timstamp
+data = data[10:]
+
+print('Start Datetime : ', timestamp)
+
 dataT = data.split('ffff') #in my device, it seem every 9 bytes data sent every second ended with theses value at the two last bytes
 dataT.pop() #removing the last empty entry of the file 
 
@@ -18,7 +24,7 @@ count=0
 ppgVal = []
 for dat in dataT:
 	print("New 7 bytes series : ",dat)
-        byteTHex = [dat[i:i+2] for i in range(0 ,len(dat) ,2)]
+	byteTHex = [dat[i:i+2] for i in range(0 ,len(dat) ,2)]
         #print(byteTHex)
 	    #octet = bin(int(myHex, 16))[2:].zfill(8)
         #dataBin = bin(int(dat,16))[2:].zfill(8)
@@ -31,13 +37,14 @@ for dat in dataT:
 	
 	#second byte (PPG Waveform data)
 	byte1 = bin(int(byteTHex[3], 16))[2:].zfill(8) #this is the byte which get the ppg waveform value
-	val = int(str(byte1)[:7],2) #ppg value is just the first 7 bits according to my ref (see repository readme)
+	val = int(str(byte1)[:8],2) #ppg value seems to be the entire second byte
 	print(count,' 2nd byte ', byte1, ' => ', val) 
 	ppgVal.append(val)
 	count=count+1
 
 #print(ppgVal)
 f = open(sys.argv[2], "w") #writing in the output file the raw ppg data decoded, line by line
+f.write(timestamp+"\n") 
 for l in ppgVal:
 	f.write(str(l)+"\n") 
 f.close()
